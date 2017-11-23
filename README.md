@@ -1,2 +1,2 @@
 # angular
-Angular Training repository
+Angular Training repository V1.0
