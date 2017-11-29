@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { UsersService } from  '../users.service';
 
 @Component({
   selector: 'app-user',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class UserComponent implements OnInit {
   id: number;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private usersService: UsersService ) { }
   // Observables support three parameters one for data, error, and complete events.
   ngOnInit() {
     this.route.params
@@ -24,6 +25,9 @@ export class UserComponent implements OnInit {
 
         }
       );
+  }
+  onActivated(){
+    this.usersService.userActivated.next(this.id);
   }
 
 }
